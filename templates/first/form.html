@@ -1,0 +1,113 @@
+{% extends 'first/base.html' %}
+{% block css %}
+{% endblock %}
+{% block title%} Dietry form {% endblock %}
+{% block body %}
+<script>
+    function getbmivalue() {
+        var h=document.getElementById('h').value;
+        var w=document.getElementById('w').value;
+        var bmi=w/(h/100*h/100);
+        var bmio=(bmi.toFixed(2));
+
+        document.getElementById('bmi').value=bmio;
+    }
+</script>
+
+<div class="container my-2">
+  <form action="/analyze/" method="get">
+  <!-- Content here -->
+<h4>Basic Details</h4>
+<div class="row">
+  <div class="col">
+    <input type="text" class="form-control" placeholder="First name" aria-label="First name">
+  </div>
+  <div class="col">
+    <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+  </div>
+</div>
+  <div class="row my-3">
+  <div class="col">
+    <input type="email" class="form-control" placeholder="Email" aria-label="First name">
+  </div>
+  <div class="col">
+    <input type="password" class="form-control" placeholder="Password" aria-label="Last name">
+  </div>
+</div>
+  <div class="row my-3">
+<div class="col">
+    <label for="inputAddress" class="form-label">Address</label>
+    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+  </div>
+  <div class="col">
+    <label for="inputAddress2" class="form-label">Address 2</label>
+    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+  </div>
+  </div>
+
+  <div class="row my-3">
+    <div class="col-md-6">
+    <label for="inputCity" class="form-label">City</label>
+    <input type="text" class="form-control" id="inputCity">
+  </div>
+  <div class="col-md-4">
+    <label for="inputState" class="form-label">State</label>
+    <select id="inputState" class="form-select">
+      <option selected>Choose...</option>
+      <option>...</option>
+    </select>
+  </div>
+  <div class="col-md-2">
+    <label for="inputZip" class="form-label">Zip</label>
+    <input type="text" class="form-control" id="inputZip">
+  </div>
+  </div>
+  <div class="row my-3">
+    <div class="col-md-4">
+    <label for="inputState" class="form-label">Gender</label>
+    <select id="inputState" class="form-select">
+      <option selected>Dont want to declare</option>
+      <option> Male</option>
+      <option> FeMale</option>
+    </select>
+  </div>
+
+  </div>
+
+  <div class="row">
+  <div class="col-md-6">
+    <input type="text" class="form-control" placeholder="Height" name="h" id="h" aria-label="First name">
+  </div>
+  <div class="col-md-6">
+    <input type="text" class="form-control" placeholder="Weight(in kg)" name="w" id="w" aria-label="Last name">
+  </div>
+</div>
+  <br>
+  <h6>**Don't fill BMI You can calculate by clicking below button**</h6>
+  <div class="row my-3">
+  <div class="col-md-6">
+    <input type="text" class="form-control" placeholder="BMI" name="bmi" id="bmi" aria-label="First name">
+  </div>
+</div>
+  <div class="row my-3">
+    <div class="col-md-4">
+    <button type="button" class="btn btn-outline-dark btn-sm" onclick="getbmivalue()">Calculate BMI</button>
+    </div>
+  </div>
+
+<input type="checkbox" name="weight_gain"> Weight Gain<br>
+  <input type="checkbox" name="weight_loss"> Weight Loss<br>
+
+<br>
+  <button type="submit" class="btn btn-primary">Submit</button>
+
+
+
+</form>
+
+
+
+
+
+</div>
+{% endblock %}
